@@ -159,8 +159,25 @@ const BookNow = () => {
                         
                         const headers = {
                             // this is where am injecting the Token (Note its for testing purposes Only)
-                            Authorization: 'Bearer ' + localStorage.getItem('access_token'),
+                            Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjhmNDA4OTM3YTkwMjgxNWM4NDE1MGY4N2EwYjBmOWQ3YjNiYWU1Y2Y2MTViOTAyZjQwZWYwMjczNzI3ZDgxOTA1Njg0MjE5YjZmNDJmMDciLCJpYXQiOjE2ODkzNzg4NjMuNTE2NjkxLCJuYmYiOjE2ODkzNzg4NjMuNTE2Njk0LCJleHAiOjE3MjEwMDEyNjMuMTcwMzYsInN1YiI6IjEyIiwic2NvcGVzIjpbXX0.P3Cz52bIxQT4azFLLBahUHjurCl2-wGVhNyAqBlG6Q7XS_Tpx7rM_ztLOUV0zU1SUdoG_33tCLMlYxw-7u0E8uBSk5spYfDeM1SMsOUNEd5hp2zGEoHT6f3Dh-kTHTrWcQvRMgk08WpcdGmdK7S15NEoCNwnsAJ7g86wNsFh9AbzmlYyyzuYzkkuFPF20-zJ7rq3wIc5Vd4Shs-kbbEngC-iNItuzbOPoc4_RC6yXwkX3RGg8kIa0roy65JbBAJp57NyMs_byxlG8p8dQEMNgghhP4qky6sNuD3ZERZwzCm5ErC5hp3W7ryn28EtWUhazEpxzrJx3_ezi7aybBs8BCrZPjrGoYBomviRmBiwYxc7zFYZbIKOA5JijwuNDrjkBaXbO0LiZE57TUpW8Al6C9pEJVJPJ85T-SZR-bWlZW9aZCjAlTkcwlJYLTEAPtDpRf7pRjmG6-g7fPtBKlvCPN_ldamJqjQcpdmWkCNvyjYSMDZktRkyearqFsRQZbTJVlfdJvui6A57GQuuspmlPBvdaQlXmGo2697M5AWaccHFQ2sjwdAsl08q61cSIhPAr_MqcVg4YWCL6Jkq3xqqvCzuRo4MzZ9_Lm6kL-9uIX94WAhM7h0AMyLGk6WqsJWDOiOIObbVb87NVPPd4G-v4ncU3bu2SyKT44lASllPOuI',
+                            'Content-Type': 'multipart/form-data',
                         }
+                        
+                        // const xhr = new XMLHttpRequest();
+                        // xhr.withCredentials = true;
+
+                        // xhr.addEventListener("readystatechange", function () {
+                        //     if (this.readyState === this.DONE) {
+                        //         console.log(this.responseText);
+                        //     }
+                        // });
+
+                        // xhr.open("POST", "https://api.katundu.africa/api/v1/orders/create");
+                        // xhr.setRequestHeader("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjhmNDA4OTM3YTkwMjgxNWM4NDE1MGY4N2EwYjBmOWQ3YjNiYWU1Y2Y2MTViOTAyZjQwZWYwMjczNzI3ZDgxOTA1Njg0MjE5YjZmNDJmMDciLCJpYXQiOjE2ODkzNzg4NjMuNTE2NjkxLCJuYmYiOjE2ODkzNzg4NjMuNTE2Njk0LCJleHAiOjE3MjEwMDEyNjMuMTcwMzYsInN1YiI6IjEyIiwic2NvcGVzIjpbXX0.P3Cz52bIxQT4azFLLBahUHjurCl2-wGVhNyAqBlG6Q7XS_Tpx7rM_ztLOUV0zU1SUdoG_33tCLMlYxw-7u0E8uBSk5spYfDeM1SMsOUNEd5hp2zGEoHT6f3Dh-kTHTrWcQvRMgk08WpcdGmdK7S15NEoCNwnsAJ7g86wNsFh9AbzmlYyyzuYzkkuFPF20-zJ7rq3wIc5Vd4Shs-kbbEngC-iNItuzbOPoc4_RC6yXwkX3RGg8kIa0roy65JbBAJp57NyMs_byxlG8p8dQEMNgghhP4qky6sNuD3ZERZwzCm5ErC5hp3W7ryn28EtWUhazEpxzrJx3_ezi7aybBs8BCrZPjrGoYBomviRmBiwYxc7zFYZbIKOA5JijwuNDrjkBaXbO0LiZE57TUpW8Al6C9pEJVJPJ85T-SZR-bWlZW9aZCjAlTkcwlJYLTEAPtDpRf7pRjmG6-g7fPtBKlvCPN_ldamJqjQcpdmWkCNvyjYSMDZktRkyearqFsRQZbTJVlfdJvui6A57GQuuspmlPBvdaQlXmGo2697M5AWaccHFQ2sjwdAsl08q61cSIhPAr_MqcVg4YWCL6Jkq3xqqvCzuRo4MzZ9_Lm6kL-9uIX94WAhM7h0AMyLGk6WqsJWDOiOIObbVb87NVPPd4G-v4ncU3bu2SyKT44lASllPOuI");
+                        // xhr.setRequestHeader("Content-Type", "multipart/form-data");
+                        // xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
+
+                        // xhr.send(formData);
                         
                         api.post('orders/create', formData, headers)
                         .then((response) => {
